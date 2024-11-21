@@ -1,0 +1,58 @@
+﻿<Window x:Class="WpfApp3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="Oscar-díjas filmek" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" Grid.Row="1" x:Name="label1" Content="Oscar Díjas filmek" HorizontalAlignment="Center" VerticalAlignment="Center" Width="180" Height="37"/>
+        <ListBox x:Name="oscar" Grid.Column="0" Grid.RowSpan="9" Grid.Row="2" BorderBrush="Black" Margin="10,0,0,39"/>
+        <Label Grid.Column="1" Content="Címe" HorizontalAlignment="Left" Margin="20,9,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+        <Label Grid.Column="1" Content="Év" HorizontalAlignment="Left" Margin="20,8,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100"/>
+        <Label Grid.Column="1" Content="Jelölések száma" HorizontalAlignment="Left" Margin="20,9,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100"/>
+        <Label Grid.Column="1" Content="Díjak száma" HorizontalAlignment="Left" Margin="20,8,0,0" Grid.Row="4" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="cim" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="203" Margin="177,0,0,0" Height="29"/>
+        <TextBox x:Name="ev1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="203" Margin="177,0,0,0" Height="29"/>
+        <TextBox x:Name="dij1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Center" Width="203" Margin="177,0,0,0" Height="29"/>
+        <TextBox x:Name="jelol1" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Center" Width="203" Margin="177,0,0,0" Height="29"/>
+        <Button Grid.Column="1" Content="Új film felvétele" HorizontalAlignment="Center" Margin="0,6,0,0" Grid.Row="5" VerticalAlignment="Top" Height="34" Width="360" Grid.RowSpan="2" Click="Button_Click"/>
+        <TextBox x:Name="keresettfilm" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="8" TextWrapping="Wrap" Text="Keresett film" VerticalAlignment="Center" Width="203" Margin="20,0,0,0" Height="29" Foreground="Gray" GotFocus="KeresettFilm_GotFocus" LostFocus="KeresettFilm_LostFocus"/>
+        <Button x:Name="kereses" Grid.Column="1" Content="Keres" HorizontalAlignment="Left" Margin="248,0,0,0" Grid.Row="8" VerticalAlignment="Center" Height="29" Width="132" Click="KeresesButton_Click"/>
+        <Label x:Name="talal" Grid.Column="1" Content="Találat kiírása:" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Row="9" VerticalAlignment="Center" Width="120"/>
+        <TextBlock x:Name="talalatkiiras" Grid.Column="1" HorizontalAlignment="Left" Margin="106,11,0,0" Grid.Row="9" VerticalAlignment="Top" Width="117" Height="29" Foreground="Gray" Grid.RowSpan="2"/>
+        <Button Grid.Column="1" Content="Legtöbb díjat kapta" HorizontalAlignment="Left" Margin="248,30,0,0" Grid.Row="6" VerticalAlignment="Top" Height="29" Width="132" Grid.RowSpan="2" Click="Button_Click_1"/>
+        <Label x:Name="filmcim" Grid.Column="1" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Row="6" VerticalAlignment="Center" Grid.RowSpan="2" Width="203">
+            <TextBlock>
+                <Run Text="Film címe: "/>
+                <Run Text="{Binding legjobbDij.Cim}"/>
+            </TextBlock>
+        </Label>
+        <ListBox x:Name="eredmeny" Grid.Column="2" Grid.RowSpan="7" Grid.Row="2" BorderBrush="Black" Margin="5,0,5,0"/>
+        <Button x:Name="listazas" Grid.Column="2" Content="Listázz" HorizontalAlignment="Left" Margin="5,14,0,0" Grid.Row="9" VerticalAlignment="Top" Height="19" Width="185" Click="listazas_Click"/>
+        <TextBox x:Name="keresettszo" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="Keresett szo" VerticalAlignment="Top" Width="203" Margin="5,2,0,0" Height="29" Foreground="Gray" GotFocus="KeresettSzo_GotFocus" LostFocus="KeresettSzo_LostFocus"/>
+        <Button Content="Törlés" HorizontalAlignment="Center" VerticalAlignment="Center" Width="109" Height="20" Click="DeleteButton_Click" Grid.Row="10" Grid.Column="0"/>
+        <ComboBox x:Name="categoryComboBox" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="177,0,0,0" Height="29" Width="203" />
+        <Button Grid.Column="1" Grid.Row="0" Content="Új kategória" HorizontalAlignment="Left" VerticalAlignment="Center" Width="104" Height="20" Margin="16,0,0,0" Click="OpenCategoryWindowButton_Click"/>
+
+    </Grid>
+</Window>
